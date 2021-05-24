@@ -1,0 +1,1 @@
+export const URL_API = 'https://desafioonline.webmotors.com.br/api/OnlineChallenge'

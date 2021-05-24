@@ -1,0 +1,12 @@
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Configuration/DriverFactory.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Pages/HomePage.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Steps/RegisterSteps.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Steps/SearchSteps.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Pages/PageBase.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Pages/BuyPage.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Pages/RegisterPage.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Pages/SearchPage.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Lib/Support.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/runner/RunCucumberTest.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Steps/BuySteps.java
+/home/brendo/Documentos/webmotors/selenium/webmotors/src/test/java/Steps/AbstractSteps.java

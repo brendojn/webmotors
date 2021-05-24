@@ -1,0 +1,517 @@
+{
+  "stats": {
+    "suites": 10,
+    "tests": 13,
+    "passes": 11,
+    "pending": 0,
+    "failures": 2,
+    "start": "2021-05-24T10:13:49.547Z",
+    "end": "2021-05-24T10:13:58.158Z",
+    "duration": 8611,
+    "testsRegistered": 13,
+    "passPercent": 84.61538461538461,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2e0df6e7-041d-4af2-ae39-f354f9573387",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e204e2d4-c47c-410c-9200-6f04c71ba4ed",
+          "title": "Conferir marcas de veículos",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/make.spec.js",
+          "file": "/test/make.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo verificar se o status veio 200, assim como todas as marcas",
+              "fullTitle": "Conferir marcas de veículos devo verificar se o status veio 200, assim como todas as marcas",
+              "timedOut": false,
+              "duration": 658,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Make\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    expect(res.body[0].Name).to.equal(\"Chevrolet\");\n    expect(res.body[1].Name).to.equal(\"Honda\");\n    expect(res.body[2].Name).to.equal(\"Ford\");\n    done();\n});",
+              "err": {},
+              "uuid": "62d9ed8d-badc-482b-a741-18f89e8fb3ee",
+              "parentUUID": "e204e2d4-c47c-410c-9200-6f04c71ba4ed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "62d9ed8d-badc-482b-a741-18f89e8fb3ee"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 658,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "0f54d416-b7a4-4cab-945f-1a7d0781473f",
+          "title": "Conferir modelos de veículos",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/model.spec.js",
+          "file": "/test/model.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo validar todos os modelos para a marca chevrolet ",
+              "fullTitle": "Conferir modelos de veículos devo validar todos os modelos para a marca chevrolet ",
+              "timedOut": false,
+              "duration": 618,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=1\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    for (var i = 0; i < res.body.length; i++) {\n        expect(res.body[i].Name).to.equal(modelChevrolet[i]);\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "6d6047f6-8872-444b-aca4-ca2989036f06",
+              "parentUUID": "0f54d416-b7a4-4cab-945f-1a7d0781473f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "devo validar todos os modelos para a marca honda ",
+              "fullTitle": "Conferir modelos de veículos devo validar todos os modelos para a marca honda ",
+              "timedOut": false,
+              "duration": 624,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=2\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    for (var i = 0; i < res.body.length; i++) {\n        expect(res.body[i].Name).to.equal(modelHonda[i]);\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "aa005e5e-dc75-465f-b8bd-785dc82364cd",
+              "parentUUID": "0f54d416-b7a4-4cab-945f-1a7d0781473f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "devo validar todos os modelos para a marca ford ",
+              "fullTitle": "Conferir modelos de veículos devo validar todos os modelos para a marca ford ",
+              "timedOut": false,
+              "duration": 657,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=3\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    for (var i = 0; i < res.body.length; i++) {\n        expect(res.body[i].Name).to.equal(modelFord[i]);\n    }\n    done();\n});",
+              "err": {
+                "message": "AssertionError: expected 'Fussion' to equal 'Fusion'",
+                "estack": "AssertionError: expected 'Fussion' to equal 'Fusion'\n    at /home/brendo/Documentos/webmotors/api/test/model.spec.js:47:49\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:716:12)\n    at /home/brendo/Documentos/webmotors/api/node_modules/superagent/lib/node/index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/parsers/json.js:19:7)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                "diff": "- Fussion\n+ Fusion\n"
+              },
+              "uuid": "22d42cc7-9120-4f27-8274-c6fe563a7dab",
+              "parentUUID": "0f54d416-b7a4-4cab-945f-1a7d0781473f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6d6047f6-8872-444b-aca4-ca2989036f06",
+            "aa005e5e-dc75-465f-b8bd-785dc82364cd"
+          ],
+          "failures": [
+            "22d42cc7-9120-4f27-8274-c6fe563a7dab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1899,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "1006f724-2894-4453-baf5-06a056696081",
+          "title": "Conferir o limite do id de marcas",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/model.spec.js",
+          "file": "/test/model.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "se passar um id de marca inexistente, a resposta deve ser vazia ",
+              "fullTitle": "Conferir o limite do id de marcas se passar um id de marca inexistente, a resposta deve ser vazia ",
+              "timedOut": false,
+              "duration": 658,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=4\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    expect(res.body).to.empty;\n    done();\n});",
+              "err": {},
+              "uuid": "08545e82-55a2-42c3-b5fd-2cf4e458834d",
+              "parentUUID": "1006f724-2894-4453-baf5-06a056696081",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "se passar um id de marca 0, a resposta deve ser vazia ",
+              "fullTitle": "Conferir o limite do id de marcas se passar um id de marca 0, a resposta deve ser vazia ",
+              "timedOut": false,
+              "duration": 651,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=0\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    expect(res.body).to.empty;\n    done();\n});",
+              "err": {},
+              "uuid": "fe5e221b-8ce4-4613-b5f3-82e2240e62f4",
+              "parentUUID": "1006f724-2894-4453-baf5-06a056696081",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "08545e82-55a2-42c3-b5fd-2cf4e458834d",
+            "fe5e221b-8ce4-4613-b5f3-82e2240e62f4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1309,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "25d74ad9-acec-4e32-80be-63b9d72aa04a",
+          "title": "Não passar valor da marca",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/model.spec.js",
+          "file": "/test/model.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo receber uma mensagem de request inválida ",
+              "fullTitle": "Não passar valor da marca devo receber uma mensagem de request inválida ",
+              "timedOut": false,
+              "duration": 656,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Model?MakeID=\").end(function (err, res) {\n    expect(res).to.has.status(400);\n    expect(res.body.Message).to.equal(\"The request is invalid.\");\n    done();\n});",
+              "err": {},
+              "uuid": "6a7084a8-a0be-41bf-94bb-364134555d11",
+              "parentUUID": "25d74ad9-acec-4e32-80be-63b9d72aa04a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6a7084a8-a0be-41bf-94bb-364134555d11"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 656,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f99d9588-2ae7-4091-a465-dc4812ed716c",
+          "title": "Validar valores do veículo honda city",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/vehicle.spec.js",
+          "file": "/test/vehicle.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo validar todos os modelos para a marca chevrolet ",
+              "fullTitle": "Validar valores do veículo honda city devo validar todos os modelos para a marca chevrolet ",
+              "timedOut": false,
+              "duration": 637,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Vehicles?Page=1\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    expect(res.body[0].Make).to.equal(\"Honda\");\n    expect(res.body[0].Model).to.equal(\"City\");\n    done();\n});",
+              "err": {},
+              "uuid": "a9bf3a1b-0650-415a-ab9b-c0f4ba74e029",
+              "parentUUID": "f99d9588-2ae7-4091-a465-dc4812ed716c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a9bf3a1b-0650-415a-ab9b-c0f4ba74e029"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 637,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "09d72fe7-df46-4b78-ab29-7289342c406d",
+          "title": "Validar se o ano de modelo dos veículos é sempre menor ou igual ao ano de fabricação",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/vehicle.spec.js",
+          "file": "/test/vehicle.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo validar todos os modelos para a marca chevrolet ",
+              "fullTitle": "Validar se o ano de modelo dos veículos é sempre menor ou igual ao ano de fabricação devo validar todos os modelos para a marca chevrolet ",
+              "timedOut": false,
+              "duration": 624,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Vehicles?Page=2\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    for (var i = 0; i < res.body.length; i++) {\n        expect(res.body[i].YearModel).to.lessThanOrEqual(res.body[i].YearFab);\n    }\n    done();\n});",
+              "err": {
+                "message": "AssertionError: expected 2016 to be at most 2015",
+                "estack": "AssertionError: expected 2016 to be at most 2015\n    at /home/brendo/Documentos/webmotors/api/test/vehicle.spec.js:33:54\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:716:12)\n    at /home/brendo/Documentos/webmotors/api/node_modules/superagent/lib/node/index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/parsers/json.js:19:7)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                "diff": "- 2016\n+ 2015\n"
+              },
+              "uuid": "39b8c675-31ad-4e2f-a79d-38728c8c818c",
+              "parentUUID": "09d72fe7-df46-4b78-ab29-7289342c406d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "39b8c675-31ad-4e2f-a79d-38728c8c818c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 624,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "796a184a-7185-451a-a4d3-a907462eff44",
+          "title": "Não passar a page",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/vehicle.spec.js",
+          "file": "/test/vehicle.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo receber uma mensagem de request inválida ",
+              "fullTitle": "Não passar a page devo receber uma mensagem de request inválida ",
+              "timedOut": false,
+              "duration": 670,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Vehicles?Page=\").end(function (err, res) {\n    expect(res).to.has.status(400);\n    expect(res.body.Message).to.equal(\"The request is invalid.\");\n    done();\n});",
+              "err": {},
+              "uuid": "3f0e3bf0-c14c-4158-b9a5-8eea173b751e",
+              "parentUUID": "796a184a-7185-451a-a4d3-a907462eff44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3f0e3bf0-c14c-4158-b9a5-8eea173b751e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 670,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4384f5b8-d5cc-4106-9fb2-78029499cc30",
+          "title": "Validar modelos de veículos",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/version.spec.js",
+          "file": "/test/version.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo validar todos os modelos para a marca chevrolet ",
+              "fullTitle": "Validar modelos de veículos devo validar todos os modelos para a marca chevrolet ",
+              "timedOut": false,
+              "duration": 657,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Version?ModelID=1\").end(function (err, res) {\n    expect(res).to.has.status(200);\n    for (var i = 0; i < res.body.length; i++) {\n        expect(res.body[i].ModelID).to.equal(1);\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "90a70b7d-137f-45e4-93e0-704d0039e8b3",
+              "parentUUID": "4384f5b8-d5cc-4106-9fb2-78029499cc30",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90a70b7d-137f-45e4-93e0-704d0039e8b3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 657,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "cf1d3963-7473-482e-804f-8b3a2786b2ca",
+          "title": "Não passar valor do modelo",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/version.spec.js",
+          "file": "/test/version.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo receber uma mensagem de request inválida ",
+              "fullTitle": "Não passar valor do modelo devo receber uma mensagem de request inválida ",
+              "timedOut": false,
+              "duration": 620,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Version?ModelID=\").end(function (err, res) {\n    expect(res).to.has.status(400);\n    expect(res.body.Message).to.equal(\"The request is invalid.\");\n    done();\n});",
+              "err": {},
+              "uuid": "a1bb8f7a-2875-4926-aa42-e75af3f832fc",
+              "parentUUID": "cf1d3963-7473-482e-804f-8b3a2786b2ca",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1bb8f7a-2875-4926-aa42-e75af3f832fc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 620,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "08b8ab87-89ad-4c22-b787-69905f3d04f9",
+          "title": "Passar parâmetro errado",
+          "fullFile": "/home/brendo/Documentos/webmotors/api/test/version.spec.js",
+          "file": "/test/version.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devo receber um http status code 404",
+              "fullTitle": "Passar parâmetro errado devo receber um http status code 404",
+              "timedOut": false,
+              "duration": 813,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(\"/Version?Model=\").end(function (err, res) {\n    expect(res).to.has.status(404);\n    done();\n});",
+              "err": {},
+              "uuid": "1d6f772d-55ce-4771-8e54-4fa75c72b8d7",
+              "parentUUID": "08b8ab87-89ad-4c22-b787-69905f3d04f9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1d6f772d-55ce-4771-8e54-4fa75c72b8d7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 813,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
