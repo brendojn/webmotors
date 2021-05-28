@@ -3,11 +3,10 @@ package Steps;
 import Pages.HomePage;
 import Pages.SearchPage;
 import com.codeborne.selenide.Selenide;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Entao;
+import io.cucumber.java.pt.Quando;
+import io.cucumber.java.pt.E;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
@@ -17,25 +16,23 @@ public class SearchSteps extends AbstractSteps {
     HomePage homePage = new HomePage(driver);
     SearchPage searchPage = new SearchPage(driver);
 
-
-    @Given("^que acesso o site da webmotors$")
-    public void queAcessoOSiteDaWebmotors() {
+    @Dado("que acesso o site da webmotors")
+    public void que_acesso_o_site_da_webmotors() {
         Selenide.open("https://webmotors.com.br/");
     }
 
-    @And("^preencho a \"([^\"]*)\" e \"([^\"]*)\" no formulário de pesquisa$")
-    public void preenchoAENoFormulárioDePesquisa(String brand, String model) throws Throwable {
+    @E("preencho a {string} e {string} no formulário de pesquisa")
+    public void preencho_a_e_no_formulário_de_pesquisa(String brand, String model) {
         homePage.fillInputSearch(brand, model);
     }
 
-    @When("^preencho o \"([^\"]*)\" com o \"([^\"]*)\"$")
-    public void preenchoOComO(String filter, String value) throws Throwable {
+    @Quando("preencho o {string} com o {string}")
+    public void preencho_o_com_o(String filter, String value) {
         searchPage.FillFilter(filter, value);
     }
 
-    @Then("^deverá aparecer na descrição dos itens o \"([^\"]*)\"$")
-    public void deveráAparecerNaDescriçãoDosItensO(String value) throws Throwable {
+    @Entao("deverá aparecer na descrição dos itens o {string}")
+    public void deveráAparecerNaDescriçãoDosItensO(String value) {
         Assert.assertEquals(value, searchPage.returnValueFiltered(value));
     }
-
 }

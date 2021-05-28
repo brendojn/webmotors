@@ -16,12 +16,6 @@ public class BuyPage extends PageBase {
     }
 
     public String returnValueVehicle() {
-        try {
-            Thread.currentThread().sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         switchTo().window(1);
 
         this.clickModal();

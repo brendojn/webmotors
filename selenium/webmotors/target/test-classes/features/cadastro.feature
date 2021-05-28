@@ -1,16 +1,17 @@
-Feature: Cadastro
+#language:pt
+Funcionalidade: Cadastro
   Eu como consumidor da webmotors
   Desejo realizar o cadastro
   Para gerenciar de forma mais clara os meus interesses em revender ou comprar automóveis
 
-  Background:
-    Given que acesso a página de login
+  Cenario de Fundo:
+    Dado que acesso a página de login
 
-  Scenario Template: Tentativa de realizar cadastro
-    When realizo o cadastro com "<nome>", "<email>" e "<senha>"
-    Then devo obter a mensagem "<mensagem>"
+  Esquema do Cenario: Tentativa de realizar cadastro
+    Quando realizo o cadastro com "<nome>", "<email>" e "<senha>"
+    Entao devo obter a mensagem "<mensagem>"
 
-    Examples:
+    Exemplos:
       | nome            | email            | senha  | mensagem                                |
       | f f             | brendo@gmail.com | 123456 | Ops! Precisamos do seu nome completo    |
       | Brendo Oliveira | brendoxulambs    | 123456 | E-mail inválido                         |

@@ -1,1 +1,12 @@
 runner/RunCucumberTest.class
+Steps/SearchSteps.class
+Pages/HomePage.class
+Pages/BuyPage.class
+Steps/RegisterSteps.class
+Steps/AbstractSteps.class
+Lib/Support.class
+Configuration/DriverFactory.class
+Pages/SearchPage.class
+Steps/BuySteps.class
+Pages/PageBase.class
+Pages/RegisterPage.class
